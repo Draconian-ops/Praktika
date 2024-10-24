@@ -9,14 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A mobile-optimized webpage to display content on small screens.">
     <meta name="author" content="Your Name">
-    <link rel="stylesheet" href="learning.css">
+    <link rel="stylesheet" href="/learningpage/learning.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <title>Mobile Optimized Page</title>
     
-    <link rel="stylesheet" href="tabbar.css">
-    <script src="tabbar.js" defer></script>
+    <link rel="stylesheet" href="../tab/tabbar.css">
+    <script src="../tab/tabbar.js" defer></script>
 </head>
 <body>
     <div class="title">
@@ -83,7 +83,7 @@
     
     <script>
         // Load tabbar.html into the div
-        fetch('tabbar.html')
+        fetch('../tab/tabbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('tabbar-container').innerHTML = data;
