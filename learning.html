@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Viewport settings to optimize for mobile screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A mobile-optimized webpage to display content on small screens.">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="learning.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <title>Mobile Optimized Page</title>
+    
+    <link rel="stylesheet" href="tabbar.css">
+    <script src="tabbar.js" defer></script>
+</head>
+<body>
+    <div class="title">
+        <h1>My learning</h1>
+    </div>
+    <div class="courses">
+        <h2>Courses</h2>
+        <div class="cards">
+            <div class="card">
+                <span class="material-icons-outlined">favorite_border</span>
+                <div class="details">
+                    <div class="rating"></div>
+                    <div class="duration"></div>
+                </div>
+            </div>
+            <div class="card">
+                <span class="material-icons-outlined">favorite_border</span>
+                <div class="details">
+                    <div class="rating"></div>
+                    <div class="duration"></div>
+                </div>
+            </div>
+            <div class="card">
+                <span class="material-icons-outlined">favorite_border</span>
+                <div class="details">
+                    <div class="rating"></div>
+                    <div class="duration"></div>
+                </div>
+            </div>
+            <div class="card">
+                <span class="material-icons-outlined">favorite_border</span>
+                <div class="details">
+                    <div class="rating"></div>
+                    <div class="duration"></div>
+                </div>
+            </div>
+            <div class="card">
+                <span class="material-icons-outlined">favorite_border</span>
+                <div class="details">
+                    <div class="rating"></div>
+                    <div class="duration"></div>
+                </div>
+            </div>
+            <div class="card">
+                <span class="material-icons-outlined">favorite_border</span>
+                <div class="details">
+                    <div class="rating"></div>
+                    <div class="duration"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lectures">
+        <h2>Lectures</h2>
+        <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+                <div class="rating"></div>
+                <div class="duration"></div>
+            </div>
+        </div>
+    </div>
+    <div id="tabbar-container"></div>
+    
+    <script>
+        // Load tabbar.html into the div
+        fetch('tabbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('tabbar-container').innerHTML = data;
+            });
+    </script>
+
+    
+</body>
+</html>
