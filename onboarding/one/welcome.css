@@ -1,0 +1,30 @@
+body {
+    background: #dbc1fe;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.image img {
+    height: 500px;
+}
+.header {
+    height: 100px;
+    width: 250px;
+    text-align: center;
+}
+a {
+    height: 50px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.onboard_container {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.onboard_container.fade-out {
+    opacity: 0;
+}
