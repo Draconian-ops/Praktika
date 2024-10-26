@@ -4,11 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/html/tabBar.html">
+    <link rel="stylesheet" href="/css/tabBar.css">
+    <script src="/Js/tabBar.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="title">
         <h2>My profile</h2>
     </div>
+    <div class="profile">
+        <img src="/assets/cesar-rincon-XHVpWcr5grQ-unsplash.jpg" alt="">
+        <span>Leilani Migisi</span>
+    </div>
+    <div class="sub-stat">
+
+    </div>
+    <ul>
+        <li>Settings</li>
+        <li>Support</li>
+        <li>About the app</li>
+    </ul>
+    <a href="#" class="logout">log out</a>
+    <div id="tabbar-container"></div>
+
+    <script>
+        // Load tabbar.html into the div
+        fetch("../html/tabbar.html")
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("tabbar-container").innerHTML = data;
+  
+                // After loading the tab bar, set up the active tab logic
+                const activeTabHref = localStorage.getItem('activeTab');
+                const currentPath = window.location.pathname;
+  
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.classList.remove('active');
+                    if (tab.getAttribute('href') === activeTabHref || (activeTabHref === '/home/index.html' && tab.getAttribute('href') === '/home/index.html')) {
+                        tab.classList.add('active');
+                    }
+                });
+  
+                // If no tab is stored in localStorage, set home as active by default
+                if (!activeTabHref) {
+                    document.querySelector('.tab[href="/index.html"]').classList.add('active');
+                }
+            });
+    </script>
 </body>
 </html>
