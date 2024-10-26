@@ -1,15 +1,20 @@
 .tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 95%;
     height: 60px;
-    margin: 60px auto 20px;
+    margin: 0 8px 20px;
     background: rgba(128, 128, 128, 0.418);
     border-radius: 25px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1000;
 }
 
 .tab {
+    height: 35px;
     text-decoration: none;
     color: #fff;
     display: flex;
@@ -19,27 +24,24 @@
     width: 20%;
 }
 
-.tab.active {
+.tab i {
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.tab .material-icons {
+    opacity: 0;
+}
+
+.tab .material-icons-outlined {
+    opacity: 1;
+}
+
+.tab.active .material-icons {
+    opacity: 1;
     color: #007AFF;
 }
 
-/* Hide the filled icons by default */
-.material-icons {
-    display: none;
-    font-size: 30px;
-}
-
-/* Show the outlined icons by default */
-.material-icons-outlined {
-    display: block;
-    font-size: 30px;
-}
-
-/* When tab is active, show filled icons and hide outlined ones */
-.tab.active .material-icons {
-    display: block;
-}
-
 .tab.active .material-icons-outlined {
-    display: none;
+    opacity: 0;
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/search/search.css">
+    <link rel="stylesheet" href="/tab/tabBar.html">
+    <link rel="stylesheet" href="/tab/tabBar.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/tab/tabBar.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="input">
+        <input type="text">
+    </div>
+    <div class="top">
+        <h2>Top search</h2>
+        <div class="tg-btn">
+            <button class="up i"></button>
+            <button class="up ii"></button>
+            <button class="down iii"></button>
+            <button class="down iv"></button>
+        </div>
+    </div>
+    <div class="categories">
+        <h2>categories</h2>
+        <ul>
+            <li>Setup</li>
+            <li>Enrollment</li>
+            <li>payments</li>
+            <li>Certificates</li>
+            <li>Course Access</li>
+            <li>Grading</li>
+            <li>language</li>
+            <li>Subscription</li>
+            <li>Privacy & Security</li>
+        </ul>
+    </div>
+    <div id="tabbar-container"></div>
+
+    <script>
+        // Load tabbar.html into the div
+        fetch("../tab/tabbar.html")
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("tabbar-container").innerHTML = data;
+  
+                // After loading the tab bar, set up the active tab logic
+                const activeTabHref = localStorage.getItem('activeTab');
+                const currentPath = window.location.pathname;
+  
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.classList.remove('active');
+                    if (tab.getAttribute('href') === activeTabHref || (activeTabHref === '/home/index.html' && tab.getAttribute('href') === '/home/index.html')) {
+                        tab.classList.add('active');
+                    }
+                });
+  
+                // If no tab is stored in localStorage, set home as active by default
+                if (!activeTabHref) {
+                    document.querySelector('.tab[href="/home/index.html"]').classList.add('active');
+                }
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/home/home.css" />
+    <link rel="stylesheet" href="/tab/tabBar.css">
+    <link rel="stylesheet" href="/tab/tabBar.html">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/tab/tabBar.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="profile">
+      <div class="personal">
+        <img src="/home/img/cesar-rincon-XHVpWcr5grQ-unsplash.jpg" alt="" />
+        <span>Migisi Leilani</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="tags">
+        <button class="tg"></button>
+        <button class="tg"></button>
+        <button class="tg"></button>
+        <button class="tg"></button>
+        <button class="tg"></button>
+      </div>
+      <div class="courses">
+        <h2>Courses</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lectures">
+        <h2>Lectures</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons-outlined">favorite_border</span>
+            <div class="details">
+              <div class="rating"></div>
+              <div class="duration"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lectures">
+          <h2>Top</h2>
+          <div class="cards">
+            <div class="card">
+              <span class="material-icons-outlined">favorite_border</span>
+              <div class="details">
+                <div class="rating"></div>
+                <div class="duration"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="tabbar-container"></div>
+
+    <script>
+      // Load tabbar.html into the div
+      fetch("../tab/tabbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+              document.getElementById("tabbar-container").innerHTML = data;
+
+              // After loading the tab bar, set up the active tab logic
+              const activeTabHref = localStorage.getItem('activeTab');
+              const currentPath = window.location.pathname;
+
+              document.querySelectorAll('.tab').forEach(tab => {
+                  tab.classList.remove('active');
+                  if (tab.getAttribute('href') === activeTabHref || (activeTabHref === '/home/index.html' && tab.getAttribute('href') === '/home/index.html')) {
+                      tab.classList.add('active');
+                  }
+              });
+
+              // If no tab is stored in localStorage, set home as active by default
+              if (!activeTabHref) {
+                  document.querySelector('.tab[href="/home/index.html"]').classList.add('active');
+              }
+          });
+  </script>
+
+  </body>
+</html>

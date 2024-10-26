@@ -10,13 +10,40 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.title {
+.profile {
+    background-color: #191919;
+    position: fixed;
+    height: 70px;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    margin-bottom: 20px;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 10px;
 }
-
+.tags {
+    height: 90px;
+    width: 100%;
+    padding-left: 20px;
+}
+.tg {
+    height: 40px;
+    width: 100px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    background: transparent;
+}
+.personal {
+    height: 60px;
+    width: 165px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
 .courses {
     padding: 0 20px;
 }
@@ -49,7 +76,6 @@ body {
     justify-content: space-between;
     background-color: #939393;
     border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 0 0 auto; /* Don't grow or shrink, keep original size */
 }
 
@@ -66,7 +92,7 @@ body {
     height: 25px;
     width: 60px;
     border-radius: 8px;
-    background-color: #e0e0ff;
+    background-color: #252525;
 }
 
 .card span {
@@ -80,7 +106,7 @@ body {
 .lectures {
     padding: 0 20px;
 }
-.lectures h2 {
-    margin-bottom: 20px;   
+.content {
+    padding-top: 80px;
+    padding-bottom: 70px;
 }
-
