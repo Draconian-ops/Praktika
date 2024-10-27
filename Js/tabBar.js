@@ -5,14 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.tab').forEach(tab => {
         tab.classList.remove('active');
-        if (tab.getAttribute('href') === activeTabHref || (activeTabHref === '/home/index.html' && tab.getAttribute('href') === '/home/index.html')) {
+        if (tab.getAttribute('href') === activeTabHref || (activeTabHref === '/html/home.html' && tab.getAttribute('href') === '/html/home.html')) {
             tab.classList.add('active');
         }
     });
 
     // If no tab is stored in localStorage, set home as active by default
     if (!activeTabHref) {
-        document.querySelector('.tab[href="/home/index.html"]').classList.add('active');
+        const homeTab = document.querySelector('.tab[href="/html/home.html"]');
+        if (homeTab) {  // Add null check
+            homeTab.classList.add('active');
+        }
     }
 });
 
