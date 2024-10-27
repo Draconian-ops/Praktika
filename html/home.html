@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/tabBar.css">
-    <link rel="stylesheet" href="/html/tabBar.html">
+    <link rel="stylesheet" href="./html/tabBar.html">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="/Js/tabBar.js" defer></script>
@@ -125,7 +125,7 @@
       // Load tabbar.html into the div
   document.addEventListener("DOMContentLoaded", function() {
     // Load tabbar.html into the div
-    fetch("../html/tabbar.html")
+    fetch("./html/tabbar.html")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
