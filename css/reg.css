@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #171717;
+    color: white;
+}
+.create {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 250px;
+}
+.create h1 {
+    margin-bottom: 20px;
+}
+.auth-btn {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+button {
+    height: 50px;
+    width: 250px;
+    border-radius: 25px;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: white;
+}
+.sign {
+    margin-top: 100px;
+    font-size: 16px;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+a {
+    color: #505050;
+    font-size: 20px;
+    text-decoration: none;
+}
