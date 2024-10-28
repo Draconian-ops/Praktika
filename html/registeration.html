@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/registeration.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="create">
+        <h1>Sign-up</h1>
+        <form id="signup-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="submit">Sign-up</button>
+        </form>
+    </div>
+    <div class="sign">
+        <p>I already have an account?</p>
+        <a href="/html/login.html">Sign-in</a>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            try {
+                const response = await fetch('http://localhost:3000/sign-up', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: username, email: email, password: password }),
+                });
+    
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText); // Throw error if response is not ok
+                }
+    
+                const result = await response.json();
+                alert('Sign-up successful!'); // Show success message
+                console.log(result); // Log the new user details
+                
+                // Redirect to the specified URL after a successful signup
+                window.location.href = result.redirectUrl; 
+            } catch (error) {
+                alert('Error: ' + error.message); // Show error message
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -4,20 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reg.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <title>Document</title>
 </head>
 <body>
     <div class="create">
         <h1>create account</h1>
         <div class="auth-btn">
-            <button class="google">Sign-up with google</button>
+            <div id="g_id_onload"
+             data-client_id="548186340255-van1c64clq5866aaecmh96msb6iqtdlb.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signup_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
             <button class="twitter">Sign-up with twitter</button>
             <button class="instagram">Sign-up with instagram</button>
+            <a href="/html/registeration.html"><button class="instagram">Sign-up with phone number</button></a>
         </div>
     </div>
     <div class="sign">
         <p>I already have an account?</p>
         <a href="#">Sign-in</a>
     </div>
+
+    <script>
+        function handleCredentialResponse(response) {
+            console.log("Encoded JWT ID token: " + response.credential);
+            // Send the token to your backend for further processing
+            fetch('/auth/google', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token: response.credential })
+            }).then(response => {
+                if (response.ok) {
+                    // Handle successful login, e.g., redirect to another page
+                    window.location.href = "/html/home.html"; // or another route
+                }
+            });
+        }
+    </script>
 </body>
 </html>
